@@ -50,6 +50,18 @@
                     </div>
                   </div>
                 </div>
+
+                <div class="row">
+                  <label class="col-sm-2 col-form-label">Specific</label>
+                  <div class="col-sm-7">
+                    <div class="form-group">
+                      <input class="form-control" name="specific" id="specific" type="text" placeholder="specific" value="{{$catalogue->specific}}" required="true" aria-required="true"/>
+                      @if ($errors->has('specific'))
+                        <span id="specific-error" class="error text-danger" for="specific">{{ $errors->first('specific') }}</span>
+                      @endif
+                    </div>
+                  </div>
+                </div>
                 
 
                 

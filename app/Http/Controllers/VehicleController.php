@@ -6,7 +6,10 @@ use App\Models\Catalogue;
 use Illuminate\Http\Request;
 use App\Models\Vehicle as VehicleModels;
 use App\Models\Catalogue as CatalogueModels;
+use App\Models\Photoproduct as PhotoproductModels;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
 
 class VehicleController extends Controller
 {
@@ -55,9 +58,12 @@ class VehicleController extends Controller
      * @param  \App\Models\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function show(Vehicle $vehicle)
+    public function show($id)
     {
-        //
+        $vehicle=VehicleModels::find($id);
+        $photos=PhotoproductModels::Where('product_id',$id)->get();
+        //dd($photos);
+        return view('vehicle.show', compact('vehicle','photos'));;
     }
 
     /**
@@ -82,6 +88,7 @@ class VehicleController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //dd($request);
         VehicleModels::updateOrCreate(['id' => $id],$request->except(['_token','_method']));
         return redirect('vehicle');
     }
@@ -104,5 +111,31 @@ class VehicleController extends Controller
         //return redirect('vehicle');
         //dd($vehicle);
         return redirect('vehicle');
+    }
+
+    public function addphoto($id){
+
+        $vehicle=VehicleModels::find($id);
+        return view('vehicle.addphoto', compact('vehicle'));
+
+        return $id;
+    }
+
+    public function simpanfoto(Request $request){
+        //dd($request->photo);
+        $photoname = 'product_' . $request->id . '_'. time().'.' . $request->photo->getClientOriginalExtension(); 
+            Storage::putFileAs(
+                'public/pruduct',
+                $request->photo,
+                $photoname
+            );
+            PhotoproductModels::updateOrCreate(['id' => $request->id], [
+                'product_id' => $request->id,
+                'photo' => $photoname
+            ]);
+
+            return redirect('vehicle');
+
+       
     }
 }

@@ -32,6 +32,20 @@
                       <th>
                         Email
                       </th>
+                      <th>Code</th>
+                        <th>Address2</th>
+                          <th>Fax</th>
+                            <th>City</th>                            
+                            <th>limitnominal</th>
+                            <th>limitnota</th>
+                            <th>proteksi</th>
+                            <th>carapembayaran</th>
+                            <th>transportpengiriman</th>
+                            <th>carapengiriman</th>
+                            <th>area</th>
+                            <th>sales</th>
+                            <th>provinsi</th>
+                            <th>tglbergabung</th>
                       
                    
                       <th class="text-right">
@@ -46,6 +60,21 @@
                       <td>{{$employee->address}}</td>
                       <td>{{$employee->phone}}</td>
                       <td>{{$employee->email}}</td>
+                      <td>{{$employee->kode}}</td>
+                      <td>{{$employee->alamat2}}</td>
+                      <td>{{$employee->fax}}</td>
+                      <td>{{$employee->kota}}</td>
+                   <td>{{$employee->negara}}</td>
+                     <td>{{$employee->limitnominal}}</td>
+                      <td>{{$employee->limitnota}}</td>
+                      <td>{{$employee->proteksi}}</td>
+                      <td>{{$employee->carapembayaran}}</td>
+                      <td>{{$employee->transportpengiriman}}</td>
+                        <td>{{$employee->carapengiriman}}</td>
+                      <td>{{$employee->area}}</td>
+                      <td>{{$employee->sales}}</td>
+                      <td>{{$employee->provinsi}}</td>
+                      <td>{{$employee->tglbergabung}}</td>
                       <td>
                         <a href="{{ route('customer.edit',$employee->id) }}">Edit</a> | 
                         <a href="{{ route('customer.destroy',$employee->id) }}">Delete</a>

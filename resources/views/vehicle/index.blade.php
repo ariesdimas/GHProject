@@ -50,7 +50,9 @@
                       <td>{{$row->description}}</td>
                       <td>{{$row->harga}}</td>
                       <td>{{$row->catalogue }}</td>
-                      <td>
+                      <td class="text-right">
+                        <a href="{{ route('vehicle.show',$row->id) }}">Preview</a> | 
+                        <a href="{{ route('vehicle.addphoto',$row->id) }}">Add Photo</a> | 
                         <a href="{{ route('vehicle.edit',$row->id) }}">Edit</a> | 
                         <a href="{{ route('vehicle.deletedata',$row->id) }}">Delete</a>
                         

@@ -35,6 +35,14 @@
                       <th>
                         Password
                       </th>
+                      <th>Kota</th>
+                        <th>tempatlahir</th>
+                          <th>agama</th>
+                            <th>statuspernikahan</th>
+                              <th>gender</th>
+                                <th>ktp</th>
+                                  <th>jabatan</th>
+                                    <th>tanggallahir</th>
                    
                       <th class="text-right">
                         Actions
@@ -49,6 +57,14 @@
                       <td>{{$employee->phone}}</td>
                       <td>{{$employee->email}}</td>
                       <td>{{$employee->password}}</td>
+                      <td>{{$employee->Kota}}</td>
+<td>{{$employee->tempatlahir}}</td>
+  <td>{{$employee->agama}}</td>
+    <td>{{$employee->statuspernikahan}}</td>
+      <td>{{$employee->gender}}</td>
+        <td>{{$employee->ktp}}</td>
+          <td>{{$employee->jabatan}}</td>
+            <td>{{$employee->tanggallahir}}</td>
                       <td>
                         <a href="{{ route('employees.edit',$employee->id) }}">Edit</a> | 
                         <a href="{{ route('employees.destroy',$employee->id) }}">Delete</a>

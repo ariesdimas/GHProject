@@ -63,6 +63,18 @@
                 </div>
 
                 <div class="row">
+                  <label class="col-sm-2 col-form-label">Specific</label>
+                  <div class="col-sm-7">
+                    <div class="form-group">
+                      <textarea class="form-control" name="specific" id="specific"required="true" aria-required="true"></textarea>
+                      @if ($errors->has('specific'))
+                        <span id="specific-error" class="error text-danger" for="specific">{{ $errors->first('specific') }}</span>
+                      @endif
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
                   <label class="col-sm-2 col-form-label">Harga</label>
                   <div class="col-sm-7">
                     <div class="form-group">
@@ -106,4 +118,13 @@
       
     </div>
   </div>
+
+  <script src="{{asset('assets/ckeditor/ckeditor.js')}}"></script>
+<script>
+   var konten = document.getElementById("specific");
+     CKEDITOR.replace(konten,{
+     language:'en-gb'
+   });
+   CKEDITOR.config.allowedContent = true;
+</script>
 @endsection

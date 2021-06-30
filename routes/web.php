@@ -41,7 +41,9 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::resource('bom', BomController::class);
 	Route::get('/catalogue/{id}/deletedata', [CatalogueController::class,'deletedata'])->name('catalogue.deletedata');
 	Route::get('/vehicle/{id}/deletedata', [VehicleController::class,'deletedata'])->name('vehicle.deletedata');
-	Route::get('/bom/{id}/deletedata', [VehicleController::class,'deletedata'])->name('bom.deletedata');
+	Route::get('/vehicle/{id}/addphoto', [VehicleController::class,'addphoto'])->name('vehicle.addphoto');
+	Route::post('/vehicle/savephoto', [VehicleController::class,'simpanfoto'])->name('vehicle.savephoto');
+	Route::get('/bom/{id}/deletedata', [BomController::class,'deletedata'])->name('bom.deletedata');
 });
 
 Auth::routes();

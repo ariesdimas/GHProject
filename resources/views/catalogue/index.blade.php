@@ -26,6 +26,9 @@
                       <th>
                         Description
                       </th>
+                      <th>
+                        Specific
+                      </th>
                       
                    
                       <th class="text-right">
@@ -38,7 +41,8 @@
                     <tr>
                       <td>{{$row->name}}</td>
                       <td>{{$row->description}}</td>
-                      <td>
+                      <td>{{$row->specific}}</td>
+                      <td class="text-right">
                         <a href="{{ route('catalogue.edit',$row->id) }}">Edit</a> | 
                         <a href="{{ route('catalogue.deletedata',$row->id) }}">Delete</a>
                         
