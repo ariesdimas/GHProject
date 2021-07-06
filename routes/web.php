@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\BomController;
+use App\Http\Controllers\MobileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +27,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/mobile', [MobileController::class,'index'])->name('mobile');
+Route::get('/about', [MobileController::class, 'about'])->name('about');
+Route::get('/contact', [MobileController::class, 'contact'])->name('contact');
+Route::get('/catalogue/{id}', [MobileController::class,'catalogue'])->name('mobile.catalogue');
+Route::get('/vehicle/{id}', [MobileController::class,'vehicle'])->name('mobile.vehicle');
+
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
 
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
@@ -38,11 +46,15 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::resource('employees', EmployeesController::class);
     Route::resource('products', ProductController::class);
 	Route::resource('vehicle', VehicleController::class);
-	Route::resource('bom', BomController::class);
+	Route::resource('bom', BomController::class);	
 	Route::get('/catalogue/{id}/deletedata', [CatalogueController::class,'deletedata'])->name('catalogue.deletedata');
+	Route::get('/catalogue/{id}/addphoto', [CatalogueController::class,'addphoto'])->name('catalogue.addphoto');
+	Route::post('/catalogue/savephoto', [CatalogueController::class,'simpanfoto'])->name('catalogue.savephoto');
+
 	Route::get('/vehicle/{id}/deletedata', [VehicleController::class,'deletedata'])->name('vehicle.deletedata');
 	Route::get('/vehicle/{id}/addphoto', [VehicleController::class,'addphoto'])->name('vehicle.addphoto');
 	Route::post('/vehicle/savephoto', [VehicleController::class,'simpanfoto'])->name('vehicle.savephoto');
+	
 	Route::get('/bom/{id}/deletedata', [BomController::class,'deletedata'])->name('bom.deletedata');
 });
 

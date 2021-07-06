@@ -44,6 +44,7 @@
                       <td>{{$row->specific}}</td>
                       <td class="text-right">
                         <a href="{{ route('catalogue.edit',$row->id) }}">Edit</a> | 
+                        <a href="{{ route('catalogue.addphoto',$row->id) }}">Add Photo</a> |
                         <a href="{{ route('catalogue.deletedata',$row->id) }}">Delete</a>
                         
                       </td>

@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 use App\Models\Catalogue;
 use Illuminate\Http\Request;
 use App\Models\Catalogue as CatalogueModels;
+use Illuminate\Support\Facades\Storage;
+
 
 class CatalogueController extends Controller
 {
@@ -39,6 +41,7 @@ class CatalogueController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         CatalogueModels::create($request->except('_token'));
         return redirect('catalogue');
     }
@@ -75,6 +78,8 @@ class CatalogueController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //$catalogue=CatalogueModels::find($id);
+        //$catalogue->update([$request->except(['_token','_method'])]);
         CatalogueModels::updateOrCreate(['id' => $id],$request->except(['_token','_method']));
         return redirect('catalogue');
     }
@@ -97,5 +102,30 @@ class CatalogueController extends Controller
         //return redirect('catalogue');
         //dd($catalogue);
         return redirect('catalogue');
+    }
+
+    public function addphoto($id){
+
+        $catalogue=CatalogueModels::find($id);
+        return view('catalogue.addphoto', compact('catalogue'));
+
+    }
+
+    public function simpanfoto(Request $request){
+       // dd($request->img);
+        $photoname = 'catalogue_' . $request->id . '.' . $request->img->getClientOriginalExtension(); 
+            Storage::putFileAs(
+                'public/catalogue',
+                $request->img,
+                $photoname
+            );
+            $catalogue=CatalogueModels::find($request->id);
+
+            //dd($catalogue);
+            $catalogue->update(['img'=>$photoname]);
+
+            return redirect('catalogue');
+
+       
     }
 }

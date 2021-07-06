@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Catalogue extends Model
 {
     use HasFactory;
-    protected $fillable=['name', 'description','status','specific'];
+    protected $fillable=['name', 'description','status','specific','img'];
     
 }

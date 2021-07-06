@@ -25,7 +25,7 @@
                 <i class="material-icons">store</i>
               </div>
               <p class="card-category">On Progress</p>
-              <h3 class="card-title">20</h3>
+              <h3 class="card-title" id="lat">20</h3>
             </div>
             
           </div>
@@ -63,10 +63,28 @@
 @endsection
 
 @push('js')
+
   <script>
     $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js
       md.initDashboardPageCharts();
+      getLocation()
     });
+
+    var x = document.getElementById("lat");
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+
+    function showPosition(position) {
+      console.log(position.coords.latitude)
+      x.innerHTML = "Latitude: " + position.coords.latitude + 
+      "<br>Longitude: " + position.coords.longitude;
+    }
   </script>
 @endpush
