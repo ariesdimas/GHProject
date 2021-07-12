@@ -4,7 +4,6 @@
 <div class="container" style="height: auto;">
   <div class="row align-items-center">
     <div class="col-md-9 ml-auto mr-auto mb-3 text-center">
-      <h3>{{ __('Wellcome to GH APP.') }} </h3>
     </div>
     <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
       <form class="form" method="POST" action="{{ route('login') }}">
@@ -16,7 +15,7 @@
             
           </div>
           <div class="card-body">
-            <p class="card-description text-center">Selamat Datang Admin Garis Harmoni </p>
+            <p class="card-description text-center">Silahkan Login</p>
             <div class="bmd-form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
               <div class="input-group">
                 <div class="input-group-prepend">

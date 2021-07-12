@@ -16,12 +16,12 @@
     <link href="{{ asset('material') }}/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
 
 </head>
-<body>
+<body style="background-image: url('{{ asset('material') }}/img/mback.jpg'); background-position: top center;align-items: center;">
 
-    <div class="container">
-        <div class="row mt-3">
-            <div class="col">
-                <img src="{{ asset('material/img/logo.png') }}" style="width: 100%;">
+    <div class="container" >
+        <div class="row">
+            <div class="col" style="padding: 10px;background: black;">
+                <img src="{{ asset('material/img/logo.jpg') }}" style="width: 100%;">
             </div>
         </div>
         <div class="row mt-3">

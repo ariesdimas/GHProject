@@ -129,7 +129,7 @@ class VehicleController extends Controller
                 $request->photo,
                 $photoname
             );
-            PhotoproductModels::updateOrCreate(['id' => $request->id], [
+            PhotoproductModels::Create([
                 'product_id' => $request->id,
                 'photo' => $photoname
             ]);

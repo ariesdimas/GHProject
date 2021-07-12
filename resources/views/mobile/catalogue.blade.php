@@ -16,24 +16,23 @@
     <link href="{{ asset('material') }}/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
 
 </head>
-<body>
-
+<body style="background-image: url('{{ asset('material') }}/img/mback.jpg'); background-position: top center;align-items: center;">
     <div class="container">
-        <div class="row mt-3">
-            <div class="col">
-                <img src="{{ asset('material/img/logo.png') }}" style="width: 100%;">
+        <div class="row">
+            <div class="col" style="padding: 10px;background: black;">
+                <img src="{{ asset('material/img/logo.jpg') }}" style="width: 100%;">
             </div>
         </div>
         <div class="row mt-3">
-            @foreach ($vehicle as $row )
-                <div class="col-12">
-                    <a href="{{url('vehicle/'.$row->id)}}">
+            @foreach ($vhdetail as $row )
+                <div class="col-6">
+                    <a href="{{url('mobile/vehicle/'.$row->id)}}">
                         <div class="card">
+                            <img class="card-img-top" src="{{asset('storage/pruduct/'.$row->photo)}}" alt="Card image cap">
                             <div class="card-body">
-                            <h5 class="card-title">{{$row->name}}</h5>
-                            <div class="card-text">
-                                {{$row->description}}
-                            </div>
+                                <div class="card-text">
+                                    {{$row->name}}
+                                </div>
                             </div>
                         </div>
                     </a>

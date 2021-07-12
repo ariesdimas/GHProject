@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeesController;
@@ -31,7 +32,7 @@ Route::get('/mobile', [MobileController::class,'index'])->name('mobile');
 Route::get('/about', [MobileController::class, 'about'])->name('about');
 Route::get('/contact', [MobileController::class, 'contact'])->name('contact');
 Route::get('/catalogue/{id}', [MobileController::class,'catalogue'])->name('mobile.catalogue');
-Route::get('/vehicle/{id}', [MobileController::class,'vehicle'])->name('mobile.vehicle');
+Route::get('/mobile/vehicle/{id}', [MobileController::class,'vehicle'])->name('mobile.vehicle');
 
 Auth::routes();
 
@@ -47,6 +48,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('products', ProductController::class);
 	Route::resource('vehicle', VehicleController::class);
 	Route::resource('bom', BomController::class);	
+	Route::resource('attendance', AbsensiController::class);	
 	Route::get('/catalogue/{id}/deletedata', [CatalogueController::class,'deletedata'])->name('catalogue.deletedata');
 	Route::get('/catalogue/{id}/addphoto', [CatalogueController::class,'addphoto'])->name('catalogue.addphoto');
 	Route::post('/catalogue/savephoto', [CatalogueController::class,'simpanfoto'])->name('catalogue.savephoto');

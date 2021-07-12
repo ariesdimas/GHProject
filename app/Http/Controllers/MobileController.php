@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Catalogue as CatalogueModels;
 use App\Models\Vehicle as VehicleModels;
 use App\Models\Photoproduct as PhotoproductModels;
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -31,7 +32,11 @@ class MobileController extends Controller
     public function catalogue($id)
     {
         $vehicle=VehicleModels::Where('catalogue',$id)->get();
-        return view('mobile.catalogue',compact('vehicle'));
+        $vhdetail=DB::table('vehicles as v')
+                ->select('v.*',DB::raw("(select p2.photo from photoproducts p2 where p2.product_id=v.id limit 1) as photo"))
+                ->where('v.catalogue',$id)
+                ->get();
+        return view('mobile.catalogue',compact('vhdetail'));
     }
 
     public function vehicle($id)

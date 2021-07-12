@@ -44,6 +44,12 @@
                 <span class="sidebar-normal"> {{ __('Employees') }} </span>
               </a>
             </li>
+            <li class="nav-item{{ $activePage == 'attendance' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('attendance.index') }}">
+                <span class="sidebar-mini"> AT </span>
+                <span class="sidebar-normal"> {{ __('Attendance') }} </span>
+              </a>
+            </li>
             <li class="nav-item{{ $activePage == 'customer' ? ' active' : '' }}">
               <a class="nav-link" href="{{ route('customer.index') }}">
                 <span class="sidebar-mini"> CO </span>
