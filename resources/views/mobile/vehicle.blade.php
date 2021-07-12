@@ -23,6 +23,11 @@
               <img src="{{ asset('material/img/logo.jpg') }}" style="width: 100%;">
           </div>
       </div>
+      <div class="row">
+        <div class="col" style="padding: 10px;background: black;">
+            <img src="{{ asset('material/img/logo.jpg') }}" style="width: 100%;">
+        </div>
+      </div>
         <div class="row mt-3">
             <div class="card ">
                 <div class="card-header card-header-primary">

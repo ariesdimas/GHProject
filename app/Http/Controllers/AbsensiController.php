@@ -47,7 +47,7 @@ class AbsensiController extends Controller
     public function store(Request $request)
     {
         AbsensiModel::create($request->except('_token'));
-        return redirect('absensi');
+        return redirect('attendance');
     }
 
     /**
